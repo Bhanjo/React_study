@@ -1,0 +1,21 @@
+인프런 리엑트
+(웹 게임을 만들며 배우는 React)
+
+리액트 CDN (head파일에 넣기)
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> //바벨
+
+리엑트 사용 이유
+single page application을 위한 라이브러리
+UX을 충족하기 위해
+데이터-화면 일치
+중복되는 부분을 컴포넌트화 시킬 수 있다
+
+리액트에서 속성을 작성할땐 반드시 camelCase로 기입한다
+컴포넌트는 대문자로 시작하는 것이 좋다
+state? : 바뀌는 부분(바뀔 수 있는 부분)
+setState로 한번여 여러 state를 바꿀 수 있다.
+
+jsx랑 js랑 혼용되어 사용하지 말자 컴포넌트화 시켜 분리
+return 안에 쓸모없는 div태그가 포함되어야 해서 방해됨 => <></> 혹은 <React.Fragment>빈 태그로 해결
