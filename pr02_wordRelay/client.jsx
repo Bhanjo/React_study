@@ -3,6 +3,6 @@ const ReactDom = require('react-dom');
 
 
 // 모듈 불러옴
-const wordRelay = require('./wordRelay');
+const WordRelay = require('./wordRelay');
 
-ReactDom.render(<wordRelay/>, document.querySelector('#root'))
+ReactDom.render(<WordRelay/>, document.querySelector('#root'))

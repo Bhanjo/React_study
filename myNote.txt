@@ -13,9 +13,42 @@ UX을 충족하기 위해
 중복되는 부분을 컴포넌트화 시킬 수 있다
 
 리액트에서 속성을 작성할땐 반드시 camelCase로 기입한다
-컴포넌트는 대문자로 시작하는 것이 좋다
+컴포넌트는 반드시 대문자로 시작하자
 state? : 바뀌는 부분(바뀔 수 있는 부분)
 setState로 한번여 여러 state를 바꿀 수 있다.
 
 jsx랑 js랑 혼용되어 사용하지 말자 컴포넌트화 시켜 분리
 return 안에 쓸모없는 div태그가 포함되어야 해서 방해됨 => <></> 혹은 <React.Fragment>빈 태그로 해결
+
+===========================(0618)==========================================
+
+리액트 hooks?
+함수형 컴포넌트에서도 ref와 setState를 사용할 수 있다.
+
+리액트에서는 <div class="">와 같이 class를 못쓴다  => className을 쓸 수 있음
+마찬가지로 라벨 사용 시   <for>를 쓰지 못해 <htmlFor>를 써야한다
+
+웹팩?
+여러 JS파일을 한번에 합쳐 하나의 JS로 만들어주는 기술
+중복 최소화 할 수 있다.
+
+----------------(리액트와 웹팩 기본 설치)----------------
+(이하 내용에는 create react app으로 자동 세팅 가능)
+
+터미널에서 폴더에 접속 후 'npm init'
+npm i react react-dom(리액트와 리액트 돔 설치)
+npm i -D webpack webpack-cli(웹팩 설치)
+npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader (바벨 설치)
+npm i -D @babel/plugin-proposal-class-properties(에러뜨면 추가)
+
+폴더 내에서 webpack.config.js 파일 생성
+ModuleGraphConnection.exports = {} 입력
+
+client.jsx파일 생성
+const React = require('react');
+const ReactDom = require('react-dom'); 입력 이를통해 cdn으로 안불러와도 된다
+
+html에 <div id="root"></div> <script src="./dist/app.js"></script>
+------------------------------------------------------------
+
+===========================(06xx)==========================================
