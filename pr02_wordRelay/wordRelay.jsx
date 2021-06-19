@@ -1,49 +1,40 @@
+// hooks로 구현
 const React = require('react');
-// const { Module } = require('webpack');
 const { Component } = React;
 
-class WordRelay extends Component {
-    state = {
-        word: '한조',
-        value: '',
-        result: '',
-    };
+const {useState, useRef} = React;
+const WordRelay = () => {
+    const [word, setWord] = useState('한조');
+    const [value, setValue] = useState('');
+    const [result, setResult] = useState('');
+    const inputRef = useRef('');
 
-    onSubmitForm = (e) => {
+    const onSubmitForm = (e) => {
         e.preventDefault();
-        if(this.state.word[this.state.word.length -1] === this.state.value[0]) {
-            this.setState({
-                result: '정답!',
-                word: this.state.value,
-                value: '',
-            });
-            this.input.focus();
+        if(word[word.length -1] === value[0]) {
+            setResult('정답!');
+            setWord(value);
+            setValue('');
+            inputRef.current.focus();
         } else {
-            this.setState({
-                result: '오답!',
-                value: '',
-            });
-            this.input.focus();
+            setResult('오답!');
+            setValue('');
+            inputRef.current.focus();
         }
     };
-    onChangeInput = (e) => {
-        this.setState({ value: e.currentTarget.value});
-    };
-    input;
-    onRefInput = (c) => {
-        this.input = c;
+    const onChangeInput = (e) => {
+        setValue(e.target.value);
     };
 
-    render() {
-        return (<>
-            <div>{this.state.word}</div>
-            <form onSubmit={this.onSubmitForm}>
-                <input ref={this.onRefInput} value={this.state.value} onChange={this.onChangeInput} />
-                <button>입력</button>
-            </form>
-            <div>{this.state.result}</div>
-        </>);
-    }
+    return (<>
+        <div>{word}</div>
+        <form onSubmit={onSubmitForm}>
+            <label htmlFor="wordInput">단어입력</label>
+            <input placeholder="단어" className="wordInput" ref={inputRef} value={value} onChange={onChangeInput} />
+            <button>입력</button>
+        </form>
+        <div>{result}</div>
+    </>);
 }
 
 module.exports = WordRelay;
