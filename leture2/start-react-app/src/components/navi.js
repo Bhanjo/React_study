@@ -8,7 +8,15 @@ class Navigation extends Component {
         let i =0;
         while(i < data.length) {
             // 여러 값을 넣을 때 key값이 유니크 값이 되어야 하는데 아래처럼 key값을 지정해주면 된다
-            lists.push(<li key={data[i].id}><a href={"/content/"+data[i].id}>{data[i].title}</a></li>);
+            lists.push(<li key={data[i].id}>
+                <a href={"/content/"+data[i].id}
+                data-id={data[i].id}
+                onClick={function(e){
+                    e.preventDefault();
+                    this.props.onChangePage(e.target.dataset.id);
+                }.bind(this)}
+                >{data[i].title}</a>
+            </li>);
             i = i+1;
         }
         return (

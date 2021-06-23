@@ -4,7 +4,10 @@ class Subject extends Component {
     render() {
         return (
             <header>
-                <h1>{this.props.title}</h1> {/* props활용 */}
+                <h1><a href="/" onClick={function(e){
+                    e.preventDefault();
+                    this.props.onChangePage();
+                }.bind(this)}>{this.props.title}</a></h1> {/* props활용 */}
                 {this.props.sub}
             </header>
         );
