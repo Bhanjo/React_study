@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MyComponent from './MyComponent';
 
-function App() {
+const App = () => {
+  const name = "리액트";
+  const style = {
+    backgroundColor: "black",
+    color: "white",
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={style}>
+      {name === "리액트" ? <h1>{name}hello React!</h1> : <h1>not react..</h1>}
+      {/* <MyComponent name="React" /> */}
+      <MyComponent name={'리액트'} favNum={8}>리액트</MyComponent>
     </div>
   );
 }
