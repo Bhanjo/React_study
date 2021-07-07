@@ -1,32 +1,28 @@
-import React, { useEffect, useState} from 'react';
+import React, { useReducer} from 'react';
+
+// 리듀서 사용
+function reducer(state, action) {
+    return {
+        ...state,
+        [action.name]: action.value
+    };
+}
 
 const Info = () => {
-    const [name, setName] = useState('');
-    const [nickname, setNickname] = useState('');
-
-    // useEffect: 컴포넌트 렌더링될 때마다 특정 작업 수행
-    useEffect(() => {
-        console.log('렌더링 완료');
-        console.log(name);
-        return () => {
-            console.log('클린업');
-            console.log(name);
-        }
-    }, [name]);
-    // []를 넣으면 마운트 시에만 불러옴, [값]을 넣으면 해당 값이 업데이트 될 때 작업 수행
-
-    const onChangeName = e => {
-        setName(e.target.value);
-    };
-    const onChangeNickname = e => {
-        setNickname(e.target.value);
+    const [state, dispatch] = useReducer(reducer, {
+        name: '',
+        nickname: ''
+    });
+    const { name, nickname } = state;
+    const onChange = e => {
+        dispatch(e.target);
     };
 
     return (
         <div>
             <div>
-                <input value={name} onChange={onChangeName} />
-                <input value={nickname} onChange={onChangeNickname} />
+                <input name="name" value={name} onChange={onChange} />
+                <input name="nickname" value={nickname} onChange={onChange} />
             </div>
             <div>
                 <div>
