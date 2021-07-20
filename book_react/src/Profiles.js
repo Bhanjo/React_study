@@ -1,14 +1,18 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import Profile from './Profile';
 
 const Profiles = () => {
+    const activeStyle = {
+        background: 'black',
+        color: 'white'
+    };
     return(
         <div>
             <h3>사용자 목록</h3>
             <ul>
-                <li><Link to="/profiles/velopert">velopert</Link></li>
-                <li><Link to="/profiles/gildong">gildong</Link></li>
+                <li><NavLink activeStyle={activeStyle} to="/profiles/velopert">velopert</NavLink></li>
+                <li><NavLink activeStyle={activeStyle} to="/profiles/gildong">gildong</NavLink></li>
             </ul>
 
             {/* 컴포넌트 대신 render 사용 => 보여주고 싶은 JSX 넣을 수 있다 */}
