@@ -1,12 +1,12 @@
 import CounterContainer from './container/CounterContainer';
-import Todos from './components/Todos';
+import TodosContainer from './container/TodosContainer';
 
 const App = () => {
     return(
         <div>
             <CounterContainer />
             <hr />
-            <Todos />
+            <TodosContainer />
         </div>
     );
 };
