@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'; // 리액트 라우터 import
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+import { createStore } from 'redux'; // 리덕스 store
+import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from './modules'
+
+const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Provider store={store}>
     <App />
-  </BrowserRouter>,
+  </Provider>,
   document.getElementById('root')
 );
-
-reportWebVitals();
