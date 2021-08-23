@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { decrease, increase } from "../modules/counter";
-import Counter from "./Counter";
+import Counter from "../components/Counter";
 
 const CounterContainer = ({ number, increase, decrease }) => {
     return (<Counter number={number} onIncrease={increase} onDecrease={decrease} />);

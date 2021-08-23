@@ -1,4 +1,4 @@
-import CounterContainer from './components/CounterContainer';
+import CounterContainer from './container/CounterContainer';
 import Todos from './components/Todos';
 
 const App = () => {
