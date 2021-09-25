@@ -1,12 +1,16 @@
-import CounterContainer from './container/CounterContainer';
-import TodosContainer from './container/TodosContainer';
+import InputChangeEvent from './components/InputChangeEvent';
+// import CounterContainer from './container/CounterContainer';
+// import TodosContainer from './container/TodosContainer';
 
 const App = () => {
     return(
+        // <div>
+        //     <CounterContainer />
+        //     <hr />
+        //     <TodosContainer />
+        // </div>
         <div>
-            <CounterContainer />
-            <hr />
-            <TodosContainer />
+            <InputChangeEvent />
         </div>
     );
 };
