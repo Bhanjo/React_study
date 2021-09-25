@@ -1,4 +1,5 @@
-import InputChangeEvent from './components/InputChangeEvent';
+import MultiInputEvent from './components/MultiInputEvent';
+// import InputChangeEvent from './components/InputChangeEvent';
 // import CounterContainer from './container/CounterContainer';
 // import TodosContainer from './container/TodosContainer';
 
@@ -10,7 +11,8 @@ const App = () => {
         //     <TodosContainer />
         // </div>
         <div>
-            <InputChangeEvent />
+            {/* <InputChangeEvent /> */}
+            <MultiInputEvent />
         </div>
     );
 };
