@@ -1,4 +1,5 @@
-import MultiInputEvent from './components/MultiInputEvent';
+import ScrollBox from './components/ScrollBox';
+// import MultiInputEvent from './components/MultiInputEvent';
 // import InputChangeEvent from './components/InputChangeEvent';
 // import CounterContainer from './container/CounterContainer';
 // import TodosContainer from './container/TodosContainer';
@@ -12,7 +13,8 @@ const App = () => {
         // </div>
         <div>
             {/* <InputChangeEvent /> */}
-            <MultiInputEvent />
+            {/* <MultiInputEvent /> */}
+            <ScrollBox/>
         </div>
     );
 };
