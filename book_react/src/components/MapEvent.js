@@ -28,6 +28,13 @@ const MapEvent = () => {
         setNextId(nextId + 1) // 다음 id를 위해 증가
         setNextText('') // input 값을 초기화
     }
+
+    const onRemove = id => {
+        // filter로 name.id != id 인 요소만 return
+        const nextName = names.filter(name => name.id !== id)
+        setNames(nextName)
+    }
+
     return(
         <>
         <h1>값을 추가해보세요</h1>
@@ -38,7 +45,7 @@ const MapEvent = () => {
         />
         <button onClick={onClick}>등록</button>
         <ul>
-            {names.map(name => <li key={name.id}>{name.text}</li>)}
+            {names.map(name => <li key={name.id} onDoubleClick={() => onRemove(name.id)}>{name.text}</li>)}
         </ul>
         </>
     );
