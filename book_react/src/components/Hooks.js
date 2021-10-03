@@ -1,41 +1,45 @@
-import { useReducer } from 'react'
+import { useState, useMemo } from 'react'
 
-const reducer = (state, action) => {
-    switch (action.type) { // action type에 따라 다른 값 변경
-        case 'INCREMENT':
-            return { number: state.number + 1};
-        case 'DECREMENT':
-            return { number: state.number - 1};
-        default:
-            return state;
-    }
+// 평균값 구하는 연산
+const getAverage = numbers => {
+    console.log('값 변경됨 연산 실행')
+    if (numbers.length === 0) return 0
+    const sum = numbers.reduce((a,b) => a + b);
+    return sum / numbers.length;
 }
 
 const Hooks = () => {
-    // const [name, setName] = useState('')
-    // useEffect(() => {
-    //     console.log('useEffect를 실행합니다' + name);
-    //     return () => { // 뒷정리 함수 실행
-    //         console.log('뒷정리 함수가 실행됨'+ name);
-    //     };
-    // },[name]);
-    // const onChange = e => {
-    //     setName(e.target.value)
-    // }
+    const [list, setList] = useState([])
+    const [number, setNumber] = useState(''); // 주의) 문자열로 받는다
 
-    const [state, dispatch] = useReducer(reducer, { number: 0 })
+    const onChange = e => {
+        setNumber(e.target.value);
+    }
+    const onInsert = () => {
+        // 이전 리스트에 number를 추가한다(이때, number는 문자열이니 int로 형변환을 시킨다)
+        const nextList = list.concat(parseInt(number))
+        setList(nextList)
+        setNumber('');
+    }
+
+    // useMemo 선언
+    // list 값이 다르면 getAverage를 실행한다
+    // 같다면 이전에 연산했던 list를 그대로 가져온다
+    const avg = useMemo(() => getAverage(list), [list])
 
     return(
         <>
             <h1>Hooks 사용 연습</h1>
-            {/* <input
-                name='name'
-                onChange={onChange}
-            />
-            <h1>입력: {name}</h1> */}
-            <p>현재 값은 {state.number}</p>
-            <button onClick={() => dispatch({type: 'INCREMENT'})}>+ 1</button>
-            <button onClick={() => dispatch({type: 'DECREMENT'})}>- 1</button>
+            <div>
+                <input value={number} onChange={onChange} />
+                <button onClick={onInsert}>등록</button>
+                <ul>
+                    {list.map((value, index) =>(
+                        <li key={index}>{value}</li>
+                    ))}
+                </ul>
+                <p>평균값: {avg}</p>
+            </div>
         </>
     );
 }
