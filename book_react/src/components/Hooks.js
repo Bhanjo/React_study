@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react'
 const Hooks = () => {
     const [name, setName] = useState('')
     useEffect(() => {
-        console.log('useEffect에 의해 출력됨')
-        console.log(name)
-    });
+        console.log('useEffect를 실행합니다' + name);
+        return () => { // 뒷정리 함수 실행
+            console.log('뒷정리 함수가 실행됨'+ name);
+        };
+    },[name]);
     const onChange = e => {
         setName(e.target.value)
     }
