@@ -3,8 +3,9 @@
 // import InputChangeEvent from './components/InputChangeEvent';
 // import CounterContainer from './container/CounterContainer';
 // import TodosContainer from './container/TodosContainer';
+// import MapEvent from "./components/MapEvent";
 
-import MapEvent from "./components/MapEvent";
+import Hooks from "./components/Hooks";
 
 const App = () => {
     return(
@@ -17,7 +18,8 @@ const App = () => {
             {/* <InputChangeEvent /> */}
             {/* <MultiInputEvent /> */}
             {/* <ScrollBox/> */}
-            <MapEvent />
+            {/* <MapEvent /> */}
+            <Hooks />
         </div>
     );
 };
